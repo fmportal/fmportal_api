@@ -1,13 +1,11 @@
-###################
 FM Portal API
-###################
+=====================================
 
 This API is designed to be used to interact with the Football Manager Portal. Sites built using an existing CMS such as Wordpress can use a specifically built plugin, while the API is designed for use by custom built websites.
 
-*******************
 Using the API
-*******************
-Using the API is very each, simply include the php file like so:
+--------
+Using the API is very easy, simply include the php file like so:
 
 ```php
 include('fmportal_api.php');
@@ -39,9 +37,8 @@ $api->send_output();
 exit;
 ```
 
-*******************
 Identifying a request
-*******************
+---------------------
 
 When a request is made from the FM Portal the useragent will be set to "fmportal". In PHP you can check if like so:
 
@@ -49,9 +46,8 @@ When a request is made from the FM Portal the useragent will be set to "fmportal
 if($_SERVER['HTTP_USER_AGENT'] == "fmportal")
 ```
 
-*******************
 Using the add_content() function
-*******************
+--------------------------------
 
 The add content function expects the following data to be sent:
 
@@ -71,9 +67,8 @@ The add content function expects the following data to be sent:
 
 **tags**: [optional] This should be an array of tags and categories associated with your content. Please refer to the section on including tags below.
 
-*******************
 Custom Requests
-*******************
+---------------
 
 In order to import all of your content the FM Portal will periodically make a call to the API hosted on your server. When making a request the FM Portal will send certain request data and you should respond with an appropiate response.
 
@@ -107,9 +102,8 @@ If the FM Portal was to request 10 items with an offset of 10 ordered by the dat
 mysql_query('SELECT * FROM articles ORDER BY date_added DESC LIMIT 10,10');
 ```
 
-*******************
 Tags
-*******************
+----
 Tags should be sent to the add_content() function using an array with each tag as a string like so:
 
 ```php
